@@ -197,6 +197,3 @@ Decisões tomadas onde o enunciado não deu resposta:
 - Sem login nem paginação (fora do escopo do enunciado).
 - O Docker usa `mongo:7`, backend na porta 3000 e frontend na 8080.
 
-## O que ficou de fora
-
-_(Liste aqui o que não deu tempo de fazer, por exemplo: testes automatizados da regra de negócio.)_
