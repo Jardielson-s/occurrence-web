@@ -179,7 +179,6 @@ Transição inválida retorna **409**.
 
 ## Como usei IA
 
-> **Preencha com o seu uso real**, pois o avaliador pergunta sobre isso na conversa.
 
 - **Ferramentas utilizadas:** _(ex.: Claude para gerar o frontend React e os Dockerfiles)_
 - **Exemplo de prompt:** _(cole um prompt real que você usou)_
@@ -197,3 +196,22 @@ Decisões tomadas onde o enunciado não deu resposta:
 - Sem login nem paginação (fora do escopo do enunciado).
 - O Docker usa `mongo:7`, backend na porta 3000 e frontend na 8080.
 
+## Como usei IA
+  
+- **Ferramentas utilizadas:** _(ex.: Claude para gerar o frontend React e os Dockerfiles)_
+- **Exemplo de prompt:** _(cole um prompt real que você usou)_
+- **Algo que a IA errou e que corrigi:** _(ex.: o `React is not defined` por causa do runtime JSX; o `tsc` falhando no build do Docker por falta do `tsconfig.json`; `detectedAt` ignorado na entidade)_
+### Documentação (README e arquivos de infraestrutura)
+ 
+- **Ferramenta:** Claude.
+- **O que a IA gerou:** este README, o `docker-compose.yml`, os Dockerfiles do backend e do frontend e o `README-frontend.md`.
+- **Como conduzi:** dei à IA o PDF do desafio e pedi os textos em etapas (primeiro o Dockerfile, depois o README). A estrutura das seções (Como usei IA, Premissas) veio do próprio enunciado.
+- **Exemplo de prompt:** _"Gere um Readme (markdown) para descrição e como rodar o projeto com e sem docker"_
+- **O que revisei:** os comandos, as portas (3000 e 8080), os nomes das variáveis (`MONGO_URI`, `PORT`, `VITE_API_URL`) e os scripts do `package.json`, porque a IA não tinha acesso ao código do meu backend e assumiu esses nomes. Também preenchi à mão as seções que dependem da minha experiência real.
+### CSS e aparência do frontend
+ 
+- **Ferramenta:** Claude.
+- **O que a IA gerou:** o `src/styles/global.css` completo: variáveis de cor, cards, badges de severidade (escala de 1 a 5, do cinza ao vermelho), chips de filtro, botões e mensagens de erro. Não usei biblioteca de UI; é CSS puro, sem design elaborado, como pede o enunciado.
+- **Exemplo de prompt:** _"Agora crie o front com react de acordo com a descrição do pdf"_ (o CSS veio junto com os componentes).
+- **Algo que a IA errou e que corrigi:** na primeira versão, o estilo global de `button` definia texto branco, e os chips de filtro não tinham cor própria. Os chips não selecionados ficavam com texto branco sobre fundo branco e sumiam. Corrigi definindo `color: var(--ink)` em `.chip`.
+- **O que revisei:** o contraste do texto nos badges e nos botões, o foco visível nos botões e campos (`:focus-visible`) e o layout em tela estreita (os cards quebram em linha com `flex-wrap`).
